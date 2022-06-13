@@ -1,8 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
+import {useHistory} from 'react-router-dom';
 function MovieDetail() {
 
+    const history = useHistory();
     const movies = useSelector(store => store.movies);
     const genres = useSelector(store => store.genres);
     console.log(genres)
@@ -50,6 +52,7 @@ function MovieDetail() {
 
                 })}
                 <p>{movie.description}</p>
+                <button onClick={() => history.push('/')}>Back</button>
             </div>
         </>
     )
